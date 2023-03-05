@@ -7,17 +7,17 @@ Instead of using infrastructure as a service, we will be using mostly PASS and S
 
 **AWS SERVICES**
 - Front-end
-BEANSTALK - VM for Tomcat
-BEANSTALK - Nginx LB replacement 
-BEANSTALK - Automation for vm scaling 
-S3/EFS - Storage }
+| BEANSTALK - VM for Tomcat
+| BEANSTALK - Nginx LB replacement 
+| BEANSTALK - Automation for vm scaling 
+| S3/EFS - Storage 
 
 - Back-end 
-RDS instance - Database 
-Elastic cache - replacing MemcacheD
-Active MQ - in place of Rabbit MQ
-Route 53 - DNS
-CloudFront - Delivery content network 
+| RDS instance - Database 
+| Elastic cache - replacing MemcacheD
+| Active MQ - in place of Rabbit MQ
+| Route 53 - DNS
+| CloudFront - Delivery content network 
 
 
 **COMPLIANCE** 
