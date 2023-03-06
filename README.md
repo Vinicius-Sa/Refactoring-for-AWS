@@ -6,28 +6,29 @@ Instead of using infrastructure as a service, we will be using mostly PASS and S
  
 
 **AWS SERVICES**
-- Front-end
-| BEANSTALK - VM for Tomcat
-| BEANSTALK - Nginx LB replacement 
-| BEANSTALK - Automation for vm scaling 
-| S3/EFS - Storage 
+> Front-end
+- BEANSTALK - EC2 for Tomcat
+- BEANSTALK - Auto-scaling 
+- BEANSTALK - Continous delivery 
+- RDS - Mysql DB 
+- S3/EFS - Storage 
 
-- Back-end 
-| RDS instance - Database 
-| Elastic cache - replacing MemcacheD
-| Active MQ - in place of Rabbit MQ
-| Route 53 - DNS
-| CloudFront - Delivery content network 
+> Back-end 
+- RDS - Mysql DB 
+- Elastic cache - replacing MemcacheD
+- Active MQ - replacing Rabbit MQ
+- Route 53 - DNS
+- CloudFront - Delivery content network 
 
 
 **COMPLIANCE** 
-Flexible infra
-No upfront cost
-IAC 
-PAAS & SAAS 
-Ease infra management  
+- Flexible infra
+- No upfront cost
+- IAC 
+- PAAS & SAAS 
+- Ease infra management  
 
-- Setup
+SETUP  
 - So first create Keypairs and Security group, in sg is important to create a rule allowing traffic for himself so with that our backend services can communicate with each other 
 - Create the subnet group with the subnets that we want to deploy DB instances, then create a parameter group specifying the engine of the Database of your choice, customize the PG configs of your preference, and finally create RDS DB it could be Aurora, MySQL or MariaDB in this project I'm gonna use MySql
 - Next, let's create an Elasticache parameter group with family memcached1.4, also create a subnet group, then create a Memcached cluster, make sure to select the right parameter group, subnet group, and backend security group
