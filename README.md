@@ -10,6 +10,7 @@ Instead of using infrastructure as a service, we will be using mostly PASS and S
 - BEANSTALK - EC2 for Tomcat
 - BEANSTALK - Auto-scaling 
 - BEANSTALK - Continous delivery 
+- CloudFront - Delivery content network 
 - RDS - Mysql DB 
 - S3/EFS - Storage 
 
@@ -18,7 +19,7 @@ Instead of using infrastructure as a service, we will be using mostly PASS and S
 - Elastic cache - replacing MemcacheD
 - Active MQ - replacing Rabbit MQ
 - Route 53 - DNS
-- CloudFront - Delivery content network 
+
 
 
 **COMPLIANCE** 
