@@ -45,7 +45,7 @@ SETUP
 ![Captura de tela 2023-03-04 211157](https://user-images.githubusercontent.com/95035624/222935400-bcfd5c03-32ef-499e-b7be-9deae20a9b9a.png)
 
 **ARCHITECTURE FLOW** 
-User access Amazon Route 53 to Cloud Front then Application Load Balancer sends the request for one of our web services instances ( ALB & Instances auto-scaling is managed by Beanstalk), Monitored by CloudWatch alarms, artifacts are stored in S3 buckets. RDS MySql, Amazon MQ, and Elasticache instead of using MySQL-service, MemcacheD, and RabbitMQ from an instance.
+User access Amazon Route 53 to Cloud Front then Application Load Balancer sends the request for one of our web services instances ( ALB & Instances auto-scaling is managed by Beanstalk), Monitored by CloudWatch alarms, artifacts are stored in S3 buckets. We also are using RDS MySql, Amazon MQ, and Elasticache instead of MySQL-service, MemcacheD, and RabbitMQ from an instance.
 
 
 ![Captura de tela 2023-03-04 203608](https://user-images.githubusercontent.com/95035624/222935404-455d66b6-5696-4365-853f-6591309c705a.png)
