@@ -1,4 +1,4 @@
-#REFACTORING WITH AWS 
+## REFACTORING WITH AWS 
 
 The objective of this project is re-architect services for the AWS cloud  
 
@@ -29,7 +29,7 @@ Instead of using infrastructure as a service, we will be using mostly PASS and S
 - PAAS & SAAS 
 - Ease infra management  
 
-SETUP  
+## SETUP  
 - So first create Keypairs and Security group, in sg is important to create a rule allowing traffic for himself so with that our backend services can communicate with each other 
 - Create the subnet group with the subnets that we want to deploy DB instances, then create a parameter group specifying the engine of the Database of your choice, customize the PG configs of your preference, and finally create RDS DB it could be Aurora, MySQL or MariaDB in this project I'm gonna use MySql
 - Next, let's create an Elasticache parameter group with family memcached1.4, also create a subnet group, then create a Memcached cluster, make sure to select the right parameter group, subnet group, and backend security group
@@ -44,7 +44,7 @@ SETUP
 - If we do not have clients around the world maybe CDN is not needed but I'm going to configure a CloudFront delivery content network for our website data to be cached around the world, which reduces our client latency, so let's create a distribution, in origin domain name we are gonna enter our domain record, allow all HTTP methods, select our record on alternate domain name and the SSL certificate security policy TLSv1, protocol Match viewer so the user can access HTTP or HTTPS and create. Can validate if CloudFront is serving cache by looking at Cache statistics: 
 ![Captura de tela 2023-03-04 211157](https://user-images.githubusercontent.com/95035624/222935400-bcfd5c03-32ef-499e-b7be-9deae20a9b9a.png)
 
-**ARCHITECTURE FLOW** 
+## **ARCHITECTURE FLOW** 
 User access Amazon Route 53 to Cloud Front then Application Load Balancer sends the request for one of our web services instances ( ALB & Instances auto-scaling is managed by Beanstalk), Monitored by CloudWatch alarms, artifacts are stored in S3 buckets. We also are using RDS MySql, Amazon MQ, and Elasticache instead of MySQL-service, MemcacheD, and RabbitMQ from an instance.
 
 
