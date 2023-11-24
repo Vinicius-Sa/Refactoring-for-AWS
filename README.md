@@ -1,10 +1,7 @@
 ## REFACTORING WITH AWS 
 
 # The objective of this project is re-architect services for the AWS cloud  
-
-Instead of using infrastructure as a service, we will be using mostly PASS and SAAS services so AWS will manage big part of the infra for us, so refactoring our application gives an easy infrastructure to manage, good performance, convenient to scale, and no needs of huge teams to manage all this
- 
-
+ ------
 **AWS SERVICES**
 > Front-end
 - BEANSTALK - EC2 for Tomcat
@@ -27,7 +24,13 @@ Instead of using infrastructure as a service, we will be using mostly PASS and S
 - No upfront cost
 - IAC 
 - PAAS & SAAS 
-- Ease infra management  
+- Ease infra management
+---------
+## **ARCHITECTURE FLOW** 
+User access Amazon Route 53 to Cloud Front then Application Load Balancer sends the request for one of our web services instances ( ALB & Instances auto-scaling is managed by Beanstalk), Monitored by CloudWatch alarms, artifacts are stored in S3 buckets. We also are using RDS MySql, Amazon MQ, and Elasticache instead of MySQL-service, MemcacheD, and RabbitMQ from an instance.
+
+
+![Captura de tela 2023-03-04 203608](https://user-images.githubusercontent.com/95035624/222935404-455d66b6-5696-4365-853f-6591309c705a.png)
 
 ## SETUP  
 - So first create Keypairs and Security group, in sg is important to create a rule allowing traffic for himself so with that our backend services can communicate with each other 
@@ -44,11 +47,6 @@ Instead of using infrastructure as a service, we will be using mostly PASS and S
 - If we do not have clients around the world maybe CDN is not needed but I'm going to configure a CloudFront delivery content network for our website data to be cached around the world, which reduces our client latency, so let's create a distribution, in origin domain name we are gonna enter our domain record, allow all HTTP methods, select our record on alternate domain name and the SSL certificate security policy TLSv1, protocol Match viewer so the user can access HTTP or HTTPS and create. Can validate if CloudFront is serving cache by looking at Cache statistics: 
 ![Captura de tela 2023-03-04 211157](https://user-images.githubusercontent.com/95035624/222935400-bcfd5c03-32ef-499e-b7be-9deae20a9b9a.png)
 
-## **ARCHITECTURE FLOW** 
-User access Amazon Route 53 to Cloud Front then Application Load Balancer sends the request for one of our web services instances ( ALB & Instances auto-scaling is managed by Beanstalk), Monitored by CloudWatch alarms, artifacts are stored in S3 buckets. We also are using RDS MySql, Amazon MQ, and Elasticache instead of MySQL-service, MemcacheD, and RabbitMQ from an instance.
-
-
-![Captura de tela 2023-03-04 203608](https://user-images.githubusercontent.com/95035624/222935404-455d66b6-5696-4365-853f-6591309c705a.png)
 ![Captura de tela 2023-03-04 203305](https://user-images.githubusercontent.com/95035624/222935409-3735c4a0-2184-4c4c-8c6d-c39d082d8425.png)
 ![Captura de tela 2023-03-04 203342](https://user-images.githubusercontent.com/95035624/222935414-18bb6ffc-3c32-439e-8129-edd6e091e4ab.png)
 
